@@ -70,7 +70,19 @@ class AddNoteActivity : AppCompatActivity() {
                 backToMainActivity()
 
             }
+            btnDelete.setOnClickListener{
+                val deleteTitle = txtTitle.text.toString()
+                val deleteDesc = txtDesc.text.toString()
+                val deleteDate = txtDate.text.toString()
 
+                if (updateId != 0){
+                    val currentNote = Note(id = updateId, title = deleteTitle, description = deleteDesc, date = deleteDate)
+                delete(currentNote)
+            }
+                updateId = 0
+                setEmptyField()
+                backToMainActivity()
+            }
 
         }
 
